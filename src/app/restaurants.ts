@@ -4,6 +4,13 @@ export interface Restaurant {
     url: string;
 }
 
+export interface RestaurantMenu{
+    menu: {},
+    name:string,
+    short_name: string,
+    week_menu: string | undefined
+}
+
 export const restaurants: Restaurant[] = [
     {
         shortName: 'portoriko',

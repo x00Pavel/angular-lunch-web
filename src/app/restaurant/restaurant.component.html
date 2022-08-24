@@ -1,5 +1,14 @@
-<h3>{{restaurant.fullName}}</h3> 
+<h2>{{restaurant.fullName}}</h2> 
 
-<div>
-    menu.
+<div *ngFor="let item of menuJSON | keyvalue ">
+    <h3>{{ item.key }}</h3>
+    <ul>
+        <li *ngFor="let val of item.value">
+            {{ val.name }} {{ val.price }}
+        </li>
+    </ul>
+</div>
+<div *ngIf="weekMenu">
+    <h3 *ngIf="weekMenu">Week menu</h3>
+    <span [innerHTML]="weekMenu | safehtml"></span>
 </div>

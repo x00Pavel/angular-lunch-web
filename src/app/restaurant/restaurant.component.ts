@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Restaurant } from '../restaurants';
+import { Restaurant, RestaurantMenu } from '../restaurants';
 import { MenuService } from '../menu.service';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-restaurant',
@@ -11,16 +9,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RestaurantComponent implements OnInit {
   @Input()restaurant!: Restaurant;
-  menu!: Observable<{
-    menu: JSON,
-    name:string,
-    short_name: string,
-    week_menu: string | undefined}>;
+  menuJSON!: {};
+  weekMenu!: string | undefined;
 
   constructor(private menuService: MenuService) { };
-
+  
   ngOnInit(): void {
-    this.menu = this.menuService.getMenu(this.restaurant.shortName);
+    this.menuService
+      .getMenu(this.restaurant.shortName)
+      .subscribe((data) => {
+        this.menuJSON = data.menu;
+        this.weekMenu = data.week_menu
+      });
   }
 
 }

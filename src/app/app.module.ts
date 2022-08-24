@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { SafehtmlPipe } from './safehtml.pipe';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
     TopBarComponent,
     RestaurantComponent,
     RestaurantListComponent,
+    SafehtmlPipe,
   ],
   imports: [
     BrowserModule,
