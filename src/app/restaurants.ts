@@ -49,8 +49,8 @@ export const restaurants: Restaurant[] = [
     },
 
     {
-        shortName: 'na_purkince',
-        fullName: 'Na Purkiňce',
+        shortName: 'na_purkynce',
+        fullName: 'Na Purkyňce',
         url: 'https://www.menicka.cz/api/iframe/?id=2647'
     },
 

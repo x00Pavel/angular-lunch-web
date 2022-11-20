@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class MenuService {
 
   getMenu(shortName: string): Observable<any> {
     this.httpParams["params"] = {"name": shortName};
-    return this.http.get("http://localhost:8080/menu", this.httpParams);
+    var url = environment.apiUrl + "/menu";
+    return this.http.get(url, this.httpParams);
   }
 }
