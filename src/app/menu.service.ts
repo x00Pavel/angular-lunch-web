@@ -17,7 +17,7 @@ export class MenuService {
 
   getMenu(shortName: string): Observable<any> {
     this.httpParams["params"] = {"name": shortName};
-    var url = environment.apiUrl + "/menu";
+    var url = environment.apiUrl + "menu";
     return this.http.get(url, this.httpParams);
   }
 }
