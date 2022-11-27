@@ -1,1 +1,8 @@
-<p>top-bar works!</p>
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span class="header-title">Lunch web</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <span class="header-date">{{myDate | date: 'longDate' }}</span>
+    </mat-toolbar-row>
+</mat-toolbar>

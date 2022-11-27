@@ -1,14 +1,26 @@
-<h2>{{restaurant.fullName}}</h2> 
 
-<div *ngFor="let item of menuJSON | keyvalue ">
-    <h3>{{ item.key }}</h3>
-    <ul>
-        <li *ngFor="let val of item.value">
-            {{ val.name }} {{ val.price }}
-        </li>
-    </ul>
-</div>
-<div *ngIf="weekMenu">
-    <h3 *ngIf="weekMenu">Week menu</h3>
-    <span [innerHTML]="weekMenu | safehtml"></span>
-</div>
+<mat-accordion multi="true" class="restaurant-accordion">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'45px'" [expandedHeight]="'45px'">
+          <mat-panel-title>{{ restaurant.fullName }}</mat-panel-title>
+          <mat-panel-description class="description-loading">
+            <mat-progress-bar *ngIf="finished_loading" mode="indeterminate" class="loading"></mat-progress-bar>
+        </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor="let item of menuJSON | keyvalue " >
+            <mat-expansion-panel>
+                <mat-expansion-panel-header [collapsedHeight]="'45px'" [expandedHeight]="'45px'">
+                    {{ item.key }}
+                </mat-expansion-panel-header>
+                <mat-list *ngFor="let val of item.value">
+                    <mat-list-item>{{ val.name }} {{ val.price }} Kč</mat-list-item>  
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-expansion-panel>         
+        </p>
+        <div *ngIf="weekMenu">
+            <span [innerHTML]="weekMenu | safehtml"></span>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+<mat-divider></mat-divider>
