@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://142.132.165.58:7788/'
+  apiUrl: 'https://lunch-web-new-gda27cajoa-lm.a.run.app'
 };
